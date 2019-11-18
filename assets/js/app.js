@@ -10,8 +10,15 @@ import '../css/app.css';
 
 import getNiceMessage from './get_nice_message';
 
+//now that i ran npm to include jquery, we can do execute the following:
+import $ from 'jquery';
+import 'bootstrap';
+
+
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // const $ = require('jquery');
+
+$('body').addClass('jquery-attached');
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
 console.log(getNiceMessage(5));
