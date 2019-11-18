@@ -1,9 +1,0 @@
-
-/*@import "./mvars";*/
-
-@import "~bootstrap";
-@import "~font-awesome";
-body {
-    background: lightgray url('../images/chocolate-cake.jpg');
-    border:solid 3em midnightblue;
-}
