@@ -17,4 +17,12 @@
         <li>Your template at <code><a href="{{ 'C:/Users/lewisk/Documents/mTraining/php/symfony/train04/templates/default/index.html.twig'|file_link(0) }}">templates/default/index.html.twig</a></code></li>
     </ul>
 </div>
+
+<a href="{{path('default')}}">Route test link back to Default</a>
+
+
+{# Thanks to my new custom Twig Extension, I have a new custom filter called price #}
+<p>{{560|price}}</p>
+
+
 {% endblock %}
