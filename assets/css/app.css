@@ -1,3 +1,8 @@
+
+/*@import "./mvars";*/
+
+@import "~bootstrap";
+@import "~font-awesome";
 body {
     background-color: lightgray;
     border:solid 3em midnightblue;
