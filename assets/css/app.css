@@ -4,6 +4,6 @@
 @import "~bootstrap";
 @import "~font-awesome";
 body {
-    background-color: lightgray;
+    background: lightgray url('../images/chocolate-cake.jpg');
     border:solid 3em midnightblue;
 }
