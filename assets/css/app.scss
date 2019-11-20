@@ -3,7 +3,36 @@
 
 @import './helper/variables';
 
-@import "~bootstrap";
-@import "~font-awesome";
+//BS4 SCSS COMPONENTS
+// Required
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/reboot";
 
-@import './layout/header';
+// general
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/utilities";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/input-group";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/images";
+
+//navigation
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/transitions";
+
+//print
+//@import "print";
+
+@import "~font-awesome";
+@import './layout/general';

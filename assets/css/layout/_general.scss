@@ -1,0 +1,18 @@
+body {
+    background: rgba($color-jetlee, 1); //sass built-in function
+    //border:solid 0.125em dimgray;
+    color:$theme-light;
+    font-family:$gfont-poppins;
+
+    p {
+        font-weight: 400;
+    }
+
+    .nav-link {
+        &:hover {
+            color:$theme-secondary;
+        }
+    }
+
+
+}
