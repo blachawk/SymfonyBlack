@@ -1,0 +1,593 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Symfony Black
+{% endblock %}
+
+{% block body %}
+
+	<!--BEGIN HEADER-->
+	<div class="container w-75 h-100 p-3 mx-auto mb-auto">
+		<header>
+			<nav class="navbar navbar-expand-lg navbar-dark">
+				<a class="navbar-brand" href="#">
+					<i class="fa fa-spinner" aria-hidden="true"></i>
+					Symfony
+					<span class="font-weight-bold">Black</span>
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item active">
+							<a class="nav-link font-weight-bold" href="#">
+
+								Home
+								<span class="sr-only">(current)</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link font-weight-bold" href="#">Features</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link font-weight-bold" href="#">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+	</div>
+	<!--END HEADER-->
+
+	<!--TITLE & MAIN CONTENT SECTIONS-->
+	<div class="container mt-5 w-75 rounded-lg bg-primary p-3">
+
+		<div class="row">
+			<div class="col text-center">
+				<h2 class="h1 font-weight-bold">Build It</h2>
+			</div>
+		</div>
+
+		<div class="row justify-content-md-center">
+			<div class="col col-lg-7 text-center">
+				<p>A playground area for building simple and beautiful layouts with Bootstrap, Twig and SASS. Initiate WAMPSERVER 3.1.9, Composer 1.8.5, and Symfony 4+ for Windows to get started.</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col d-flex flex-column text-center">
+
+
+				<div class="row">
+					<div class="col p-3">
+						<h4 class="font-weight-bold">
+							<i class="fa fa-leaf" aria-hidden="true"></i>
+							Tags &amp; Filters
+						</h4>
+						<p>The title |
+							{{ block('title') }}</p>
+
+						<p>
+							Conditions
+							{% if block("javascripts") is defined %}
+								| Yes the javascripts block is defined
+							{% endif %}
+						</p>
+						<p>
+							{# The apply tag allows you to apply Twig filters on a block of template data #}
+							{% apply upper|escape('html') %}
+							<strong>SOME TEXT</strong>
+							{% endapply %}
+						</p>
+						<p>
+							{# The reduce filter iteratively reduces a sequence or a mapping to a single value #}
+							{% set numbers = [1, 2, 3] %}
+							{{ numbers|reduce((carry, v) => carry + v) }}
+						</p>
+
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col p-3">
+						<h4 class="font-weight-bold">
+							<i class="fa fa-leaf" aria-hidden="true"></i>
+							Managing Data Values
+						</h4>
+						<p>
+							{# output variable or default value if value does not exist #}
+							{{ mvalue | default ('fallback value for variable') }}
+						</p>
+						<p>
+							{# escaping is automatically applied in some situations, unless you put |raw at the end #}
+							{{ mvalue|upper }}
+						</p>
+						<p>
+							{# The striptags filter strips SGML/XML tags and replace adjacent whitespace by one space: #}
+							{{ mvalue|striptags }}
+							<br>
+							{# or determine which tags should not be stripped #}
+							{{ mvalue|striptags('<b>') }}
+						</p>
+						<p>
+							{# Automatic output escaping #}
+							{% autoescape "html" %}
+								{{ mvalue }}
+								{{ mvalue|raw }}
+								{# var won't be escaped #}
+								{{ mvalue|escape }}
+								{# var won't be doubled-escaped #}
+							{% endautoescape %}
+						</p>
+
+						<p>
+							{# how to check if a variable exists #}
+							{# Uncomment to print the content inside the twig statement
+								{% set variable = 12 %}
+							#}
+								{% if variable is defined %}
+								{{- "Variable exists :" ~ variable -}}
+							{% else %}
+								<p>that variable does not exists</p>
+							{% endif %}
+						</p>
+						<p>
+							{# check if variable, array is empty #}
+							{% if marray is empty %}
+								<p>yes it is empty</p>
+							{% else %}
+								<p>it is not empty!</p>
+							{% endif %}
+						</p>
+						<p>
+							{# evaluates to true if the foo variable is iterable #}
+							{% if marray is iterable %}
+								{% for item in marray %}
+									Hello
+									{{ item }}!
+								{% endfor %}
+							{% else %}
+								{# users is probably a string #}
+								Hello
+								{{ item }}!
+							{% endif %}
+						</p>
+						<p>
+							{# null returns true if the variable is null: #}
+							{{ marray is null }}
+						</p>
+						<p>
+							{# ouput array#}
+							{% for item in marray %}
+								<p>{{item}}</p>
+							{% endfor %}
+						</p>
+						<p>
+							{# oputput associative array values #}
+							{% for item in massarray %}
+								*
+								{{ item }}
+							{% else %}
+								No value found.
+							{% endfor %}
+						</p>
+						<p>
+							{# oputput associative array key and values #}
+							{% for key,value in massarray %}
+								Key :
+								{{ key }}
+								Value :
+								{{ value }}
+							{% endfor %}
+						</p>
+						<p>
+							{# oputput associative array key and values with |keys|sort|reverse #}
+							{% for key,value in massarray|sort|reverse %}
+								Key :
+								{{ key }}
+								Value :
+								{{ value }}
+							{% endfor %}
+						</p>
+
+						<p>
+							{# 
+							extend the for loop to do more inside of it! 
+							loop.index 	    The current iteration of the loop. (1 indexed)
+							loop.index0 	The current iteration of the loop. (0 indexed)
+							loop.revindex 	The number of iterations from the end of the loop (1 indexed)
+							loop.revindex0 	The number of iterations from the end of the loop (0 indexed)
+							loop.first 	    True if first iteration
+							loop.last 	    True if last iteration
+							loop.length 	The number of items in the sequence
+							loop.parent 	The parent context
+							#}
+
+							{% for item in marray %}
+
+								{% if loop.last %}
+									{{item}}
+									| we are at the last point
+								{% else %}
+									<p>{{item}}</p>
+								{% endif %}
+							{% endfor %}
+						</p>
+						<p>
+							{# The parent context is always accessible via the loop.parent variable. #}
+							{% set data = {
+							'topics' : {
+							'topic1' : ['Message 1 of topic 1', 'Message 2 of topic 1'],
+							'topic2' : ['Message 1 of topic 2', 'Message 2 of topic 2'],
+							}
+							}%}
+
+							{% for topic, messages in data.topics %}
+								*
+								{{ loop.index }}:
+								{{ topic }}<br>
+								{% for message in messages %}
+									-
+									{{ loop.parent.loop.index }}.{{ loop.index }}:
+									{{ message }}<br>
+								{% endfor %}
+							{% endfor %}
+						</p>
+						<p>
+							{# map and display data directly created in twig #}
+							{% set people = [
+							{first: "Alice", last: "Dupond"},
+							{first: "Bob", last: "Smith"},
+						] %}
+							{{ people|map(p => p.first ~ ' ' ~ p.last)|join(', ') }}
+						</p>
+						<p>
+							{# we can filter our assocaitive arrays based on a certain limit | https://twig.symfony.com/doc/2.x/filters/filter.html #}
+							{% for key,value in mproducts|filter(p => p > 10) %}
+								<p>{{ key }}
+									{{ value}}</p>
+							{% endfor %}
+						</p>
+						<p>
+							{# playing with letters.  This could of been numbers too. #}
+							{% for letter in 'a'..'z' %}
+								*
+								{{ letter }}
+							{% endfor %}
+						</p>
+						<p>
+							{# playing with booleans that can be escaped #}
+							{% set mfalse = "<p>My Value is true<br /></p>" %}
+							{% set mtrue = "<p>My Value is false<br /></p>" %}
+							{{ mbool ? mfalse : mtrue}}
+							{# will be escaped unless I add |raw to the end#}
+						</p>
+						<p>
+							{# set a variable and use it anywhere #}
+							{% set mname = "kensley!" %}
+							{{ "Hi #{mname}" }}
+							{% set foo = 'bar' %}
+							{% set foo, bar = 'foo', 'bar' %}
+							{{ foo }}
+							{{ bar }}
+						</p>
+						<p>
+							{% set foochunck %}
+							<div id="pagination">
+								<p>my chunk</p>
+							</div>
+							{% endset %}
+							{{ foochunck }}
+						</p>
+						<p>
+							{% set fooB = ["demo", "other"] %}
+							{% set fooC = {
+								'foo': 'bar',
+								'foo2': 'bar2',
+								'group': fooB
+						    } %}
+							{{ fooC.foo }}
+							{{ fooC.group[1]}}
+						</p>
+						<p>
+							{% verbatim %}
+								<ul>
+									{% for item in seq %}
+										<li>{{ item }}</li>
+									{% endfor %}
+								</ul>
+							{% endverbatim %}
+						</p>
+						<p>
+							{# returns the absolute value#}
+							{% set foo = -4.95 %}
+							{{ foo|abs }}
+						</p>
+						<p>
+							{# round a number #}
+							{{ 42.55|round }}
+							{# outputs 43 #}
+						</p>
+
+						{# groups in chunks#}
+						{% set items = ['a', 'b', 'c', 'd', 'e', 'f', 'g'] %}
+						<table class="w-75 m-auto border border-info">
+							{% for row in items|batch(3, 'No item') %}
+								<tr>
+									{% for column in row %}
+										<td>{{ column }}
+										</td>
+									{% endfor %}
+								</tr>
+							{% endfor %}
+						</table>
+						<p>
+							{# capitalize #}
+							{% set foo = "dad" %}
+							{{ foo|capitalize }}
+						</p>
+						<p>
+							{#  returns a title-case version string #}
+							{{ 'my first car'|title }}
+						</p>
+						<p>
+							{# sends back a single column#}
+							{% set items = [{ 'fruit' : 'apple'}, {'fruit' : 'orange' }] %}
+							{% set fruits = items|column('fruit') %}
+							{# fruits now contains ['apple', 'orange'] #}
+							{{ fruits|map(p => p)|join(', ') }}
+						</p>
+						<p>
+							{# control spaces with the {{- -}} tag#}
+							{% for i in 1..10 %}
+								{{- i -}}
+							{% endfor %}
+						</p>
+						<p>
+							{# same as checks if a variable is the same as another variable. This is the equivalent to === in PHP: #}
+							{% if mbool is same as(false) %}
+								<p>the foo attribute really is the 'false' PHP value</p>
+							{% endif %}
+						</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col p-3">
+						<h4 class="font-weight-bold">
+							<i class="fa fa-leaf" aria-hidden="true"></i>
+							Managing Strings &amp; Arrays Continued...</h4>
+						<p>
+							{# get the first value#}
+							{{ [1, 2, 3, 4]|first }}
+							{# outputs 1 #}
+							<br>
+							{{ '1234'|first }}
+							{# outputs 1 #}
+							<br>
+							{{ [1, 2, 3, 4]|last }}
+							{# outputs 4 #}
+						</p>
+						<p>
+							{{ { a: 1, b: 2, c: 3, d: 4 }|first }}
+							{# outputs 1 #}
+						</p>
+						<p>
+							{{ [1, 2, 3]|join('|') }}
+							{# outputs 1|2|3 #}
+							<br>
+							{{ [1, 2, 3]|join(', ', ' and ') }}
+							{# outputs 1, 2 and 3 #}
+						</p>
+						<p>
+							{# if string or array contains value #}
+							{% set mytext = "hello how are you today" %}
+
+							{% set myarray = ["Hello",12,15,"other string"] %}
+
+							{% if "hello" in mytext %}
+								{{"'hello' has been found in the string"}}
+							{% endif %}
+
+							{% if "Hello" or 12 in myarray %}
+								{{"15 or hello found in array"}}
+							{% endif %}
+						</p>
+						<p>
+							{{ "I like Twig.\nYou will like it too."|nl2br }}
+						</p>
+						<p>
+							{# replace the placeholders with values #}
+							{{ "I like %this% and %that%."|replace({'%this%': foo, '%that%': "bar"}) }}
+						</p>
+						<p>
+							{# remove white space #}
+							{{ '  I like Twig.  '|trim }}
+						</p>
+						<p>
+							{# concatenate strings in twig #}
+							{{"Hello " ~ mvalue ~ " how are you today?"}}
+						</p>
+						<p>
+							{# limit string length #}
+							{% set myTextVariable = "A semi long string"%}
+							{{myTextVariable|slice(0,10)}}
+						</p>
+						<p>
+							{# the ternary opeterator is also avaialble #}
+							{% set myTextVariable = "A semi long string"%}
+							{# If the string length > 50, then cut it and append 3 dots .... | otherwise just print the text.#}
+							{{ myTextVariable|length > 50 ? myTextVariable|slice(0, 10) ~ '...' : myTextVariable }}
+						</p>
+						<p>
+							{# Which is the same as : #}
+							{% if myTextVariable|length > 50 %}
+								{{ myTextVariable|slice(0, 10) ~ '...'}}
+							{% else %}
+								{{ myTextVariable }}
+							{% endif %}
+						</p>
+						<p>
+							{# eliminate spaces in HTML blocks #}
+							{% spaceless %}
+								<div>
+									<strong>Hey, no easy readable HTML</strong>
+								</div>
+							{% endspaceless %}
+						</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col p-3">
+						<h4 class="font-weight-bold">
+							<i class="fa fa-leaf" aria-hidden="true"></i>
+							Dates</h4>
+						<p>
+							{# get the date | https://twig.symfony.com/doc/2.x/filters/date.html #}
+							{{ "now"|date("m/d/Y") }}
+							{{ "now"|date("F jS \\a\\t g:ia") }}
+						</p>
+						<p>
+							{# modify the date | https://twig.symfony.com/doc/2.x/filters/date_modify.html #}
+							{{ "now"|date_modify("+1 day")|date("m/d/Y") }}
+						</p>
+					</div>
+				</div>
+
+
+				<div class="row">
+					<div class="col p-3">
+						<h4 class="font-weight-bold">
+							<i class="fa fa-leaf" aria-hidden="true"></i>
+							Functions</h4>
+
+							{# dump all data assocaitd to this section #}
+							{{dump()}}
+							{{dump(mvalue)}}
+							{{dump(foochunck)}}
+
+							<div>
+								{# Twig comes with a simple regular expression system #}
+								{% if 'Batman' starts with 'B' %}
+									<p>
+									Yes it starts with B
+									</p>
+								{% else %}
+									<p>No it does not</p>
+								{% endif %}
+
+								{% if 'Batman' ends with 'n' %}
+									<p>Yes it ends with the letter n</p>
+								{% else %}
+									<p>No it does end with the letter n</p>
+								{% endif %}
+							</div>
+							<div>
+								{# through advanced regular expressions, we can validate email addresses directly in twig #}
+								{% if "mail@mail.com" matches '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/' %}
+									{{"Is a valid e-mail addy"}}
+								{% else %}
+									{{"It doesn't seems to be a valid e-mail buddy."}}
+								{% endif %}
+							</div>
+							<div>
+								{# Pretty print a JSON encoded array with twig #}
+								{% set data = {
+								"Hey": "Ho",
+								"What": 12,
+								"Value" : true
+							}%}
+
+								{{ data|json_encode()|raw }}
+								{# or #}
+								{{ data|json_encode(constant('JSON_PRETTY_PRINT'))}}
+							</div>
+							<div>
+								{# returns the biggest value #}
+
+								{{ max(11, 3, 2) }}
+								{{ max([1, 3, 23]) }}
+								{{ max({2: "e", 1: "a", 3: "b", 5: "d", 4: "z"}) }}
+							</div>
+
+							<div>
+								{# returns the smallest value #}
+								{{ min(1, 3, 2) }}
+								{{ min([1, 3, 2]) }}
+								{{ min({2: "e", 3: "a", 1: "b", 5: "d", 4: "c"}) }}
+								{# returns "a" #}
+							</div>
+							<div>
+								{{ random(['apple', 'orange', 'citrus']) }}<br>
+								{# example output: orange #}
+								{{ random('ABC') }}<br>
+								{# example output: C #}
+								{{ random() }}<br>
+								{# example output: 15386094 (works as the native PHP mt_rand function) #}
+								{{ random(5) }}<br>
+								{# example output: 3 #}
+								{{ random(50, 100) }}
+								{# example output: 63 #}
+							</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col p-3">
+						<h4 class="font-weight-bold">
+							<i class="fa fa-leaf" aria-hidden="true"></i>
+							Paths & Links</h4>
+						<p>
+							Route tests |
+							<a class="text-secondary" href="{{path('default')}}">Back to Default</a>
+						</p>
+						<p>
+							Print the controller name | Hello
+							{{ controller_name }}
+						</p>
+						<p>
+							Controller path link |
+							<a class="text-secondary" href="{{ 'C:/Users/lewisk/Documents/mTraining/php/symfony/train04/src/Controller/DefaultController.php'|file_link(0) }}">src/Controller/DefaultController.php</a>
+						</p>
+						<p>
+							Template path link |
+							<a class="text-secondary" href="{{ 'C:/Users/lewisk/Documents/mTraining/php/symfony/train04/templates/default/index.html.twig'|file_link(0) }}">templates/default/index.html.twig</a>
+						</p>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col p-3">
+						<h4 class="font-weight-bold">
+							<i class="fa fa-leaf" aria-hidden="true"></i>
+							Extending Twig with Extensions</h4>
+						{# Thanks to my new custom Twig Extension, I have a new custom filter called price #}
+						<p>Format price |
+							{{560|price}}</p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col p-3">
+						<h4 class="font-weight-bold">
+							<i class="fa fa-leaf" aria-hidden="true"></i>
+							Using Globals</h4>
+						{# my global variable from config/packages/twig.yaml #}
+						{{ message }}
+						<p>
+						{# Reference globals defined in my Twig YAML 
+						{{version}}
+						{{mtwigv}}
+						#}
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">item 4</div>
+				</div>
+			</div>
+		</div>
+	</div><!--END MAIN CONTENT SECTIONS-->{% endblock %}

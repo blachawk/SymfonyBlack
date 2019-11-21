@@ -1,0 +1,99 @@
+//BS4 VARIABLE OVERRIDES 
+//GET THE BEST OUT OF SASS https://glennmccomb.com/articles/useful-sass-scss-media-query-mixins-for-bootstrap/
+
+//GRID COLUMNS
+$grid-columns: 12;
+
+$transition-collapse: height .35s ease !default;
+
+//FONT AWESOME 4.7 REFERENCE - https://fontawesome.com/v4.7.0/icons/
+
+//GOOGLE FONTS
+// $font-fam-mplus: 'M PLUS 1p', sans-serif; //500 700 900
+// $font-fam-fira: 'Fira Sans Condensed', sans-serif;
+// $font-fam-sec: 'Secular One', sans-serif; //for quotes
+$gfont-poppins: 'Poppins', sans-serif;
+
+//FONT SIZES
+$m-font-small: 0.9rem;
+$m-font-normal: 1rem;
+$m-font-large: 1.25rem;
+$m-font-large-x: 1.5rem;
+
+//BS4 DEFAULT FONT SIZE 
+$font-size-base: $m-font-normal;
+
+//COLORS
+$color-darknight:#030200;
+$color-lastsdinner: #0d0c0a;
+$color-onynx: #0f0f0f;
+$color-kramer: #010004;
+$color-smoky: #100c08;
+$color-licorice: #1a1110;
+$color-Eigengrau: #16161d;
+$color-mirage: #1a2228;
+$color-ebony: #282C35;
+$color-jetlee: #2f2f2f;
+$color-mindshaft: #323232;
+$color-charcoal:#36454f;
+$color-bistre: #3d2b1f;
+$color-blackolive: #3b3c36;
+$color-fuscous: #565350;
+$color-rasin: #612302;
+$color-cinnamonicecream: #ffd59a;
+$color-vanilla: #fff;
+
+//OVERRIDE BS4 THEME COLORS
+$theme-colors: (
+    primary:$color-mindshaft,
+    secondary: $color-cinnamonicecream, 
+    success: $color-rasin, 
+    info: $color-charcoal, 
+    warning: $color-ebony, 
+    light: $color-vanilla, 
+    dark: $color-darknight
+    );
+
+$theme-primary: map-get($theme-colors, "primary");
+$theme-secondary: map-get($theme-colors, "secondary");
+$theme-success: map-get($theme-colors, "success");
+$theme-info: map-get($theme-colors, "info");
+$theme-warning: map-get($theme-colors, "warning");
+$theme-light: map-get($theme-colors, "light");
+$theme-dark: map-get($theme-colors, "dark");
+
+//OVERRIDE BS4 BG COLORS
+@each $key,
+$val in $theme-colors {
+    html body .bg-#{$key} {
+        background-color: #{$val} !important;
+    }
+}
+
+@each $key,
+$val in $theme-colors {
+    html body a.text-#{$key} {
+        color: #{$val} !important;
+
+        // @if $key=='info' {
+
+        //     &:hover {
+        //         color: $m-color-gold !important;
+        //     }
+
+        //     &:active {
+        //         color: $m-color-blue-lighter !important;
+        //     }
+        // }
+
+        // @if $key=='success' {
+        //     &:hover {
+        //         color: $m-color-grey-dark !important;               
+        //     }
+
+        //     &:active {
+        //         color: $m-color-gold !important;
+        //     }
+        // }
+    }
+}
