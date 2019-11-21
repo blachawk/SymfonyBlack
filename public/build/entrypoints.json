@@ -2,11 +2,12 @@
   "entrypoints": {
     "app": {
       "js": [
-        "/build/vendors~app.js",
-        "/build/app.js"
+        "http://symf.train04.wip:9000/build/vendors~_tmp_copy~app.js",
+        "http://symf.train04.wip:9000/build/vendors~app.js",
+        "http://symf.train04.wip:9000/build/app.js"
       ],
       "css": [
-        "/build/app.css"
+        "http://symf.train04.wip:9000/build/app.css"
       ]
     }
   }

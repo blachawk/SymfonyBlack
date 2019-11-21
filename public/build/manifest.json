@@ -1,11 +1,12 @@
 {
-  "build/app.css": "/build/app.css",
-  "build/app.js": "/build/app.js",
-  "build/vendors~app.js": "/build/vendors~app.js",
-  "build/fonts/fontawesome-webfont.eot": "/build/fonts/fontawesome-webfont.674f50d2.eot",
-  "build/fonts/fontawesome-webfont.woff2": "/build/fonts/fontawesome-webfont.af7ae505.woff2",
-  "build/fonts/fontawesome-webfont.ttf": "/build/fonts/fontawesome-webfont.b06871f2.ttf",
-  "build/fonts/fontawesome-webfont.woff": "/build/fonts/fontawesome-webfont.fee66e71.woff",
-  "build/images/chocolate-cake.jpg": "/build/images/chocolate-cake.a058a32c.jpg",
-  "build/images/fontawesome-webfont.svg": "/build/images/fontawesome-webfont.912ec66d.svg"
+  "build/app.css": "http://symf.train04.wip:9000/build/app.css",
+  "build/app.js": "http://symf.train04.wip:9000/build/app.js",
+  "build/vendors~_tmp_copy~app.js": "http://symf.train04.wip:9000/build/vendors~_tmp_copy~app.js",
+  "build/vendors~app.js": "http://symf.train04.wip:9000/build/vendors~app.js",
+  "build/fonts/fontawesome-webfont.eot": "http://symf.train04.wip:9000/build/fonts/fontawesome-webfont.674f50d2.eot",
+  "build/fonts/fontawesome-webfont.woff2": "http://symf.train04.wip:9000/build/fonts/fontawesome-webfont.af7ae505.woff2",
+  "build/fonts/fontawesome-webfont.ttf": "http://symf.train04.wip:9000/build/fonts/fontawesome-webfont.b06871f2.ttf",
+  "build/fonts/fontawesome-webfont.woff": "http://symf.train04.wip:9000/build/fonts/fontawesome-webfont.fee66e71.woff",
+  "build/images/chocolate-cake.jpg": "http://symf.train04.wip:9000/build/images/chocolate-cake.a058a32c.jpg",
+  "build/images/fontawesome-webfont.svg": "http://symf.train04.wip:9000/build/images/fontawesome-webfont.912ec66d.svg"
 }

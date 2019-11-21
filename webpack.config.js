@@ -32,6 +32,7 @@ Encore
 
     // will require an extra script tag for runtime.js
     // but, you probably want this, unless you're building a single-page app
+    // make the choice - https://symfony.com/blog/encore-0-21-0-webpack-4-support-copy-files-support-webpackencorebundle
     //.enableSingleRuntimeChunk()
     .disableSingleRuntimeChunk()
 
@@ -58,7 +59,7 @@ Encore
     .enableSassLoader()
 
 
-    //copy files
+    //copy files method - https://symfony.com/blog/encore-0-21-0-webpack-4-support-copy-files-support-webpackencorebundle
     .copyFiles({
         from: './assets/images',
         to: 'images/[path][name].[hash:8].[ext]'
