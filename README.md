@@ -63,12 +63,6 @@ composure require encore
 npm install
 ```
 
-* From the terminal start watching
-
-```powershell
-npm run watch
-```
-
 * When working with stylesheet links and javascript links, use the following encore tags
 
 ```twig
@@ -81,7 +75,42 @@ npm run watch
 ```powershell
 php bin/console debug:twig
 ```
+## Get a grip on the webpack.config.js file
+
+* Re-modify the config file to work directly with your new assets/ directory. 
+
+```js
+    .setOutputPath('public/build/')
+    .setPublicPath('/build')
+    .addEntry('app', './assets/js/app.js')
+    .splitEntryChunks()
+    .disableSingleRuntimeChunk()
+    .cleanupOutputBeforeBuild()
+    .enableBuildNotifications()
+    .enableSourceMaps(!Encore.isProduction())
+    .enableVersioning(Encore.isProduction())
+    .configureBabel(() => {}, {
+        useBuiltIns: 'usage',
+        corejs: 3
+    })
+    .enableSassLoader()
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[hash:8].[ext]'
+    })
+```
 
 ## Fun with Bootstrap 4
 
 * Get Bootstrap 4 via npm `npm i -D boostrap` then import it `import  'bootstrap';` into our assets/js/app.js file.
+
+* Tweak your twig template to be BS4 ready.
+
+* From the terminal start watching
+
+```powershell
+npm run watch
+```
+
+* Open your browser, access local site and let the journey begin.
+
