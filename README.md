@@ -41,21 +41,23 @@ php bin/console make:controller
 
 * Adjust the newly created route to make it the home page `@Route("/", name="default")`.  
 
-* Check to see what are our route structures by typing:
+* Review your route structures
 
 ```powershell
 php bin/console debug:router
 ```
 
+* Get a feel for how your new Twig template is attached to your new controller.
+
 ### Get Encore for Webpack needs
 
-* From the terminal initiate the following:
+* From the terminal initiate the following
 
 ```powershell
 composure require encore
 ```
 
-* Review the new package.json file and get all dependencies and commit all assets
+* Review the new package.json file and get all dependencies, and then commit all assets via git.
 
 ```powershell
 npm install
@@ -80,9 +82,6 @@ npm run watch
 php bin/console debug:twig
 ```
 
-
 ## Fun with Bootstrap 4
 
 * Get Bootstrap 4 via npm `npm i -D boostrap` then import it `import  'bootstrap';` into our assets/js/app.js file.
-
-
