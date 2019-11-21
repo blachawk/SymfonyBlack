@@ -1,0 +1,24 @@
+<div class="card border-0">
+  <div class="card-body">
+    <h5 class="card-title h1">{{slug|capitalize}}</h5>
+    <p class="card-text">The latest with Symfony and Twig</p>
+     <img class="img-thumbnail border border-warning m-auto" src="{{asset('build/images/chocolate-cake.jpg')}}"> 
+  </div>
+<ul class="list-group list-group-flush">
+    <li class="list-group-item">Inspiration</li>
+    <li class="list-group-item">Latest Builds</li>
+    <li class="list-group-item">Upcoming</li>
+   </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Link 1</a>
+    <a href="#" class="card-link">Link 2</a>
+  </div>
+</div>
+
+{# 
+TWIG ACTIONS:
+{{dump()}}
+{{ app.request.pathinfo }}
+{{ app.request.requestUri }}
+{{ app.request.uri }}
+#}

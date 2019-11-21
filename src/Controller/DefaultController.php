@@ -8,9 +8,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
     /**
-     * @Route("/", name="default")
+     * @Route("/", name="home")
      */
     public function index()
+    {
+        return $this->render('home.html.twig', []);
+    }
+
+    /**
+     * @Route("/{slug}", name="articles")
+     *
+     * @param mixed $slug
+     */
+    public function show($slug)
     {
         $mvalue = 'my value : <b>don\'t hate it</b>';
         $marray = ['white', 'black', 'yellow'];
@@ -18,18 +28,16 @@ class DefaultController extends AbstractController
         $mavaluejs = '<script>console.log("we got something");</script>';
         $mproducts = ['milk' => 20, 'eggs' => 9, 'cheese' => 11];
         $product = 29878347;
-        //$mtwigv = $this->getParameter('app.version');
 
-        return $this->render('default/index.html.twig', [
+        return $this->render('articles.html.twig', [
             'controller_name' => 'DefaultController',
+            'slug' => $slug,
             'mvalue' => $mvalue,
             'marray' => $marray,
             'massarray' => $massarray,
             'mvaluejs' => $mavaluejs,
             'mproducts' => $mproducts,
             'product' => $product,
-            //'mtwigv' => $mtwigv,
-            //'slug' => $slug,
             'mbool' => false,
         ]);
     }

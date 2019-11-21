@@ -1,0 +1,48 @@
+{% extends 'shells/secondary.html.twig' %}
+
+{% block title %}
+    Symfony Black | Article Page | {{slug|capitalize}}
+{% endblock %}
+
+{# we can append parent block content to our child blocks #}
+{% block side %} my secondary side {{ parent() }} {% endblock %}
+
+{% block main %}
+
+<div class="container mt-5 rounded-lg bg-primary p-3">
+
+    {# define all article pages here#}
+    {% set sections = ['features', 'news', 'gallery','contact'] %}
+    {% for i in sections %}
+        {% if slug == i %}
+
+            {% if slug == 'features' %}
+                {# https://twig.symfony.com/doc/2.x/tags/include.html #}
+                {% include 'partials/features.html.twig' %}
+            {% endif %}
+
+            {% if slug == 'news' %}
+                {% include 'partials/news.html.twig' %}
+            {% endif %}
+
+            {% if slug == 'gallery' %}
+                {% include 'partials/gallery.html.twig' %}
+            {% endif %}
+
+            {% if slug == 'contact' %}
+                {% include 'partials/contact.html.twig' %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+    {% if slug not in sections %}
+        <h3><span class="h1 font-weight-bold">Opps!</span> You have reached this page in error.</h3>
+    {% endif %}
+</div>
+
+
+{% endblock %}
+
+{% block javascript %}
+    {{ parent() }}
+{% endblock %}

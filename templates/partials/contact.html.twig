@@ -1,0 +1,25 @@
+<div class="card border-0">
+  <div class="card-body">
+    <h5 class="card-title h1">{{slug|capitalize}}</h5>
+    <p class="card-text">Contact information coming soon</p>
+     <img class="img-thumbnail border border-warning m-auto" src="{{asset('build/images/chocolate-cake.jpg')}}"> 
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Address</li>
+    <li class="list-group-item">Phone</li>
+    <li class="list-group-item">Email</li>
+    <li class="list-group-item">Map</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Link 1</a>
+    <a href="#" class="card-link">Link 2</a>
+  </div>
+</div>
+
+{# 
+TWIG ACTIONS:
+{{dump()}}
+{{ app.request.pathinfo }}
+{{ app.request.requestUri }}
+{{ app.request.uri }}
+#}
