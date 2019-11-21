@@ -58,6 +58,17 @@
 		<div class="row">
 			<div class="col d-flex flex-column text-center">
 
+				<div class="row">
+					<div class="col p-3">
+						<h4 class="font-weight-bold">
+							<i class="fa fa-leaf" aria-hidden="true"></i>
+							Working with Image Tags
+						</h4>
+						<p>The copyFiles method in webpack.config.js allows us to copy images from our assets directory, into our public build directory.</p>
+						<p><img class="img-thumbnail" src="{{asset('build/images/chocolate-cake.jpg')}}"></p> 
+					</div>
+				</div>
+
 
 				<div class="row">
 					<div class="col p-3">
@@ -125,8 +136,8 @@
 						<p>
 							{# how to check if a variable exists #}
 							{# Uncomment to print the content inside the twig statement
-								{% set variable = 12 %}
-							#}
+															{% set variable = 12 %}
+														#}
 								{% if variable is defined %}
 								{{- "Variable exists :" ~ variable -}}
 							{% else %}
@@ -194,16 +205,16 @@
 
 						<p>
 							{# 
-							extend the for loop to do more inside of it! 
-							loop.index 	    The current iteration of the loop. (1 indexed)
-							loop.index0 	The current iteration of the loop. (0 indexed)
-							loop.revindex 	The number of iterations from the end of the loop (1 indexed)
-							loop.revindex0 	The number of iterations from the end of the loop (0 indexed)
-							loop.first 	    True if first iteration
-							loop.last 	    True if last iteration
-							loop.length 	The number of items in the sequence
-							loop.parent 	The parent context
-							#}
+														extend the for loop to do more inside of it! 
+														loop.index 	    The current iteration of the loop. (1 indexed)
+														loop.index0 	The current iteration of the loop. (0 indexed)
+														loop.revindex 	The number of iterations from the end of the loop (1 indexed)
+														loop.revindex0 	The number of iterations from the end of the loop (0 indexed)
+														loop.first 	    True if first iteration
+														loop.last 	    True if last iteration
+														loop.length 	The number of items in the sequence
+														loop.parent 	The parent context
+														#}
 
 							{% for item in marray %}
 
@@ -464,74 +475,74 @@
 							<i class="fa fa-leaf" aria-hidden="true"></i>
 							Functions</h4>
 
-							{# dump all data assocaitd to this section #}
-							{{dump()}}
-							{{dump(mvalue)}}
-							{{dump(foochunck)}}
+						{# dump all data assocaitd to this section #}
+						{{dump()}}
+						{{dump(mvalue)}}
+						{{dump(foochunck)}}
 
-							<div>
-								{# Twig comes with a simple regular expression system #}
-								{% if 'Batman' starts with 'B' %}
-									<p>
+						<div>
+							{# Twig comes with a simple regular expression system #}
+							{% if 'Batman' starts with 'B' %}
+								<p>
 									Yes it starts with B
-									</p>
-								{% else %}
-									<p>No it does not</p>
-								{% endif %}
+								</p>
+							{% else %}
+								<p>No it does not</p>
+							{% endif %}
 
-								{% if 'Batman' ends with 'n' %}
-									<p>Yes it ends with the letter n</p>
-								{% else %}
-									<p>No it does end with the letter n</p>
-								{% endif %}
-							</div>
-							<div>
-								{# through advanced regular expressions, we can validate email addresses directly in twig #}
-								{% if "mail@mail.com" matches '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/' %}
-									{{"Is a valid e-mail addy"}}
-								{% else %}
-									{{"It doesn't seems to be a valid e-mail buddy."}}
-								{% endif %}
-							</div>
-							<div>
-								{# Pretty print a JSON encoded array with twig #}
-								{% set data = {
+							{% if 'Batman' ends with 'n' %}
+								<p>Yes it ends with the letter n</p>
+							{% else %}
+								<p>No it does end with the letter n</p>
+							{% endif %}
+						</div>
+						<div>
+							{# through advanced regular expressions, we can validate email addresses directly in twig #}
+							{% if "mail@mail.com" matches '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/' %}
+								{{"Is a valid e-mail addy"}}
+							{% else %}
+								{{"It doesn't seems to be a valid e-mail buddy."}}
+							{% endif %}
+						</div>
+						<div>
+							{# Pretty print a JSON encoded array with twig #}
+							{% set data = {
 								"Hey": "Ho",
 								"What": 12,
 								"Value" : true
 							}%}
 
-								{{ data|json_encode()|raw }}
-								{# or #}
-								{{ data|json_encode(constant('JSON_PRETTY_PRINT'))}}
-							</div>
-							<div>
-								{# returns the biggest value #}
+							{{ data|json_encode()|raw }}
+							{# or #}
+							{{ data|json_encode(constant('JSON_PRETTY_PRINT'))}}
+						</div>
+						<div>
+							{# returns the biggest value #}
 
-								{{ max(11, 3, 2) }}
-								{{ max([1, 3, 23]) }}
-								{{ max({2: "e", 1: "a", 3: "b", 5: "d", 4: "z"}) }}
-							</div>
+							{{ max(11, 3, 2) }}
+							{{ max([1, 3, 23]) }}
+							{{ max({2: "e", 1: "a", 3: "b", 5: "d", 4: "z"}) }}
+						</div>
 
-							<div>
-								{# returns the smallest value #}
-								{{ min(1, 3, 2) }}
-								{{ min([1, 3, 2]) }}
-								{{ min({2: "e", 3: "a", 1: "b", 5: "d", 4: "c"}) }}
-								{# returns "a" #}
-							</div>
-							<div>
-								{{ random(['apple', 'orange', 'citrus']) }}<br>
-								{# example output: orange #}
-								{{ random('ABC') }}<br>
-								{# example output: C #}
-								{{ random() }}<br>
-								{# example output: 15386094 (works as the native PHP mt_rand function) #}
-								{{ random(5) }}<br>
-								{# example output: 3 #}
-								{{ random(50, 100) }}
-								{# example output: 63 #}
-							</div>
+						<div>
+							{# returns the smallest value #}
+							{{ min(1, 3, 2) }}
+							{{ min([1, 3, 2]) }}
+							{{ min({2: "e", 3: "a", 1: "b", 5: "d", 4: "c"}) }}
+							{# returns "a" #}
+						</div>
+						<div>
+							{{ random(['apple', 'orange', 'citrus']) }}<br>
+							{# example output: orange #}
+							{{ random('ABC') }}<br>
+							{# example output: C #}
+							{{ random() }}<br>
+							{# example output: 15386094 (works as the native PHP mt_rand function) #}
+							{{ random(5) }}<br>
+							{# example output: 3 #}
+							{{ random(50, 100) }}
+							{# example output: 63 #}
+						</div>
 					</div>
 				</div>
 
@@ -578,10 +589,10 @@
 						{# my global variable from config/packages/twig.yaml #}
 						{{ message }}
 						<p>
-						{# Reference globals defined in my Twig YAML 
-						{{version}}
-						{{mtwigv}}
-						#}
+							{# Reference globals defined in my Twig YAML 
+													{{version}}
+													{{mtwigv}}
+													#}
 						</p>
 					</div>
 				</div>

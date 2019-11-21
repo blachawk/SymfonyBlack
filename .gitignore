@@ -7,9 +7,6 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
-<<<<<<< HEAD
-node_modules
-=======
 
 ###> symfony/web-server-bundle ###
 /.web-server-pid
@@ -21,4 +18,3 @@ node_modules
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
->>>>>>> work/encore
