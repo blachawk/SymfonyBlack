@@ -11,13 +11,13 @@ A playground area for building simple and beautiful layouts with Bootstrap, Twig
 
 ## Initiate your first Symfony development project
 
-* From the terminal
+* From the terminal, in your project directory location, install a minimal version of Symfony
 
 ```
 symfony new myproject
 ```
 
-* Install the following bundles
+* From the terminal install the following bundles for our new project
 
     - WebServerBundle | `composer require server --dev`
     - TwigBundle | `composer require twig`
@@ -26,21 +26,21 @@ symfony new myproject
     - WebProfilerBundle  | `composer require symfony/web-profiler-bundle --dev`
     - DebugBundle | `composer require symfony/debug-bundle`
 
-* Run the server
+* From the terminal run the server
 
 ```powershell
 php bin/console server:run
 ```
 
-* Create a controller with make
+* From the terminal create a controller with `make`
 
 ```powershell
 php bin/console make:controller
 ```
 
-* Adjust the newly created route to make it the home page `@Route("/", name="default")`.  
+* Within the controller, adjust the newly created route to make it the home page `@Route("/", name="default")`.  
 
-* Review your route structures
+* You can review your route structures. Do so often.
 
 ```powershell
 php bin/console debug:router
@@ -50,33 +50,33 @@ php bin/console debug:router
 
 ### Get Encore for Webpack needs
 
-* From the terminal initiate the following
+* From the terminal get encore for your Symfony project via Composer.
 
 ```powershell
 composure require encore
 ```
 
-* Review the new package.json file and get all dependencies, and then commit all assets via git.
+* Review the new package.json file and install all dependencies - followed by a commit on your work branch.
 
 ```powershell
 npm install
 ```
 
-* When working with stylesheet links and javascript links, use the following encore tags
+* When working with stylesheet &amp; JavaScript links, use the following encore tags in your Symfony project.
 
 ```twig
 {{ encore_entry_link_tags('app')}}
 {{ encore_entry_script_tags('app')}}
 ```
 
-* Review all registered actions with Twig
+* From the terminal review all registered actions with Twig
 
 ```powershell
 php bin/console debug:twig
 ```
 ## Get a grip on the webpack.config.js file
 
-* Re-modify the config file to work directly with your new assets/ directory. 
+* Re-modify this config file to register your new assets/ directory. It's from the assets directory that SASS and JavaScript files will be created. 
 
 ```js
     .setOutputPath('public/build/')
@@ -101,9 +101,9 @@ php bin/console debug:twig
 
 ## Fun with Bootstrap 4
 
-* Get Bootstrap 4 via npm `npm i -D boostrap` then import it `import  'bootstrap';` into our assets/js/app.js file.
+* From the terminal get Bootstrap 4 via npm `npm i -D boostrap` then import it `import  'bootstrap';` into our assets/js/app.js file.
 
-* Tweak your twig template to be BS4 ready.
+* Tweak your twig template(s) to be BS4 compatible.
 
 * From the terminal start watching
 
@@ -111,5 +111,5 @@ php bin/console debug:twig
 npm run watch
 ```
 
-* Open your browser, access local site and let the journey begin.
+* Open your browser, access your local site and let the journey continue!
 
