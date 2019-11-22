@@ -4,8 +4,8 @@ A playground area for building simple and beautiful layouts with Bootstrap, Twig
 ## Get started by installing the following components
 
 * WAMPSERVER 3.1.9+ with a virtual host name and location for the project
-* node.js
-* npm
+* node.js 8.10+
+* npm 6.12+
 * Composer 1.8.5+
 * Symfony 4.3.8+
 * All packages listed in composer.json and package.json
