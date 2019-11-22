@@ -1,7 +1,7 @@
 # Symfony Black
 A playground area for building simple and beautiful layouts with Bootstrap, Twig and SASS, all under Symfony 4. 
 
-## Get started by installing the following components
+### Get started
 
 * WAMPSERVER 3.1.9+ with a virtual host name and location for the project
 * node.js 8.10+
@@ -9,7 +9,7 @@ A playground area for building simple and beautiful layouts with Bootstrap, Twig
 * Composer 1.8.5+
 * Symfony 4.3.8+
 
-## Initiate your first Symfony development project
+### Initiate a Symfony development project
 
 * From the terminal, in your project directory location, install a minimal version of Symfony
 
@@ -67,7 +67,7 @@ npm install
 ```powershell
 php bin/console debug:twig
 ```
-## Get a grip on the webpack.config.js file
+### Managing the webpack.config.js file
 
 * Re-modify this config file to register your new assets/ directory. It's from the assets directory that SASS and JavaScript files will be created. 
 
@@ -92,7 +92,7 @@ php bin/console debug:twig
     })
 ```
 
-## Fun with Bootstrap 4
+### Get Bootstrap 4
 
 * From the terminal get Bootstrap 4 via npm `npm i -D boostrap` then import it `import  'bootstrap';` into our assets/js/app.js file.
 
