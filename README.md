@@ -69,7 +69,7 @@ php bin/console debug:twig
 ```
 ### Managing the webpack.config.js file
 
-* Re-modify this config file to register your new assets/ directory. It's from the assets directory that SASS and JavaScript files will be created. 
+* Re-modify this config file to register your new assets/ directory. It's from the assets directory that SASS, JavaScript and image files will be created and managed. 
 
 ```js
     .setOutputPath('public/build/')
