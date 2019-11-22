@@ -62,13 +62,6 @@ composure require encore
 npm install
 ```
 
-* When working with stylesheet &amp; JavaScript links, use the following encore tags in your Symfony project.
-
-```twig
-{{ encore_entry_link_tags('app')}}
-{{ encore_entry_script_tags('app')}}
-```
-
 * From the terminal review all registered actions with Twig
 
 ```powershell
@@ -104,6 +97,13 @@ php bin/console debug:twig
 * From the terminal get Bootstrap 4 via npm `npm i -D boostrap` then import it `import  'bootstrap';` into our assets/js/app.js file.
 
 * Tweak your twig template(s) to be BS4 compatible.
+
+* When working with stylesheet &amp; JavaScript links, use the following encore tags in your Twig template(s).
+
+```twig
+{{ encore_entry_link_tags('app')}}
+{{ encore_entry_script_tags('app')}}
+```
 
 * From the terminal start watching
 
