@@ -94,7 +94,9 @@ php bin/console debug:twig
 
 ### Get Bootstrap 4
 
-* From the terminal get Bootstrap 4 via npm `npm i -D boostrap` then import it `import  'bootstrap';` into our assets/js/app.js file.
+* From the terminal get Bootstrap 4 via npm `npm i -D bootstrap` 
+
+* Import it into our assets/js/app.js file like so - `import  'bootstrap';` 
 
 * Tweak your Twig template(s) to be BS4 compatible.
 
