@@ -8,7 +8,6 @@ A playground area for building simple and beautiful layouts with Bootstrap, Twig
 * npm 6.12+
 * Composer 1.8.5+
 * Symfony 4.3.8+
-* All packages listed in composer.json and package.json
 
 ## Initiate your first Symfony development project
 
